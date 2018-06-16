@@ -2,6 +2,7 @@ package ru.project.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public class Article implements Serializable, Comparable<Article> {
@@ -18,6 +19,7 @@ public class Article implements Serializable, Comparable<Article> {
     private long creationTimestamp;
 
     public Article() {
+        this.creationTimestamp = System.currentTimeMillis();
     }
 
     public Article(String title, String content) {
@@ -46,5 +48,16 @@ public class Article implements Serializable, Comparable<Article> {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public long getCreationTimestamp() {
+        return creationTimestamp;
+    }
+
+    public void setCreationTimestamp(long creationTimestamp) {
+        this.creationTimestamp = creationTimestamp;
+    }
+    public String getDate(){
+        return new Date(getCreationTimestamp()).toString();
     }
 }

@@ -36,4 +36,9 @@ public class MainController {
         return "redirect:../";
     }
 
+    @RequestMapping(value = "/login")
+    public String loginPage() {
+        return "login";
+    }
+
 }
